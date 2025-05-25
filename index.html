@@ -1,0 +1,458 @@
+<!-- Ana sayfa (index.html) -->
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TopcuWeddingArt</title>
+  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+      :root {
+        --section-padding: 5rem;
+        --card-border-radius: 1rem;
+        --transition-speed: 0.3s;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        overflow-x: hidden;
+      }
+      
+      /* Navbar Stil */
+      .navbar {
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        height: 76px;
+      }
+
+      .navbar-brand {
+        font-weight: 600;
+      }
+
+      .nav-link {
+        position: relative;
+        font-weight: 500;
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background-color: var(--bs-primary);
+        transition: all var(--transition-speed) ease;
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      /* Carousel Styles */
+      .carousel {
+        margin-top: 76px;
+      }
+
+      .carousel-item {
+        height: 90vh;
+        min-height: 600px;
+        background: no-repeat center center scroll;
+        background-size: cover;
+        position: relative;
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .carousel-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+        z-index: 1;
+      }
+
+      .carousel-caption {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: var(--card-border-radius);
+        max-width: 800px;
+        margin: 0 auto;
+        bottom: 20%;
+        transform: translateY(50%);
+        z-index: 2;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* Card Stil */
+      .service-card {
+        transition: transform var(--transition-speed) ease;
+        border-radius: var(--card-border-radius);
+        overflow: hidden;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .service-card img {
+        height: 300px;
+        object-fit: cover;
+        transition: transform var(--transition-speed) ease;
+      }
+
+      .service-card:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Footer Styles */
+      footer {
+        background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+      }
+
+      .social-icon {
+        width: 45px;
+        height: 45px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        transition: all var(--transition-speed) ease;
+      }
+
+      .social-icon:hover {
+        background: var(--bs-primary);
+        transform: translateY(-3px);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 1200px) {
+        .carousel-item {
+          height: 80vh;
+        }
+      }
+
+      @media (max-width: 991px) {
+        .navbar-collapse {
+          background-color: rgba(255, 255, 255, 0.98);
+          border-radius: 0.5rem;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          margin-top: 0.5rem;
+        }
+
+        .nav-link::after {
+          display: none;
+        }
+
+        .nav-link:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+          border-radius: 0.5rem;
+        }
+
+        .carousel-item {
+          height: 70vh;
+        }
+
+        .carousel-caption {
+          max-width: 90%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        :root {
+          --section-padding: 3rem;
+        }
+
+        .carousel-item {
+          height: 60vh;
+          min-height: 500px;
+        }
+
+        .carousel-caption {
+          bottom: 10%;
+          transform: translateY(0);
+        }
+
+        .service-card img {
+          height: 250px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .navbar {
+          height: 66px;
+        }
+
+        .carousel-item {
+          height: 50vh;
+          min-height: 400px;
+        }
+
+        .service-card img {
+          height: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <span class="text-primary">Topcu</span><span class="text-dark">Wedding</span><span class="text-primary">Art</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active px-3" href="index.html">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="hakkimizda.html">Hakkımızda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="hizmetler.html">Hizmetler</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="galeri.html">Galeri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="iletisim.html">İletişim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="sss.html">S.S.S.</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Ana Sayfa Carousel -->
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="photo/slider1.jpg" class="d-block w-100 img-fluid" alt="Düğün Fotoğrafı 1">
+          <div class="carousel-caption p-4">
+            <h1 class="display-4 fw-bold mb-3">Özel Anlarınızı Ölümsüzleştiriyoruz</h1>
+            <p class="lead mb-4">Profesyonel düğün fotoğrafçılığı hizmetleri</p>
+            <a href="iletisim.html" class="btn btn-primary btn-lg">Randevu Al</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="photo/slider3.webp" class="d-block w-100 img-fluid" alt="Düğün Fotoğrafı 2">
+          <div class="carousel-caption p-4">
+            <h1 class="display-4 fw-bold mb-3">Unutulmaz Anılar</h1>
+            <p class="lead mb-4">Her anı özel kılan fotoğrafçılık</p>
+            <a href="galeri.html" class="btn btn-primary btn-lg">Galeriyi Keşfet</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="photo/2.webp" class="d-block w-100 img-fluid" alt="Düğün Fotoğrafı 3">
+          <div class="carousel-caption p-4">
+            <h1 class="display-4 fw-bold mb-3">Profesyonel Ekip</h1>
+            <p class="lead mb-4">Deneyimli fotoğrafçılarımızla yanınızdayız</p>
+            <a href="hakkimizda.html" class="btn btn-primary btn-lg">Bizi Tanıyın</a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <!-- Hizmetlerimiz Section -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="display-5 fw-bold">Hizmetlerimiz</h2>
+          <p class="lead text-muted">Size özel düğün fotoğrafçılığı paketleri</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card h-100 service-card shadow-sm">
+              <img src="photo/1.jpg" class="card-img-top img-fluid" alt="Düğün Fotoğrafçılığı">
+              <div class="card-body text-center">
+                <h3 class="card-title h4">Düğün Fotoğrafçılığı</h3>
+                <p class="card-text">Profesyonel düğün fotoğrafçılığı hizmetleri ile özel anlarınızı ölümsüzleştiriyoruz.</p>
+                <a href="hizmetler.html" class="btn btn-primary">Detaylı Bilgi</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 service-card shadow-sm">
+              <img src="photo/nisan.jpg" class="card-img-top img-fluid" alt="Nişan Fotoğrafçılığı">
+              <div class="card-body text-center">
+                <h3 class="card-title h4">Nişan Fotoğrafçılığı</h3>
+                <p class="card-text">Nişan töreninizin tüm anlarını profesyonel fotoğraflarla kaydediyoruz.</p>
+                <a href="hizmetler.html" class="btn btn-primary">Detaylı Bilgi</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 service-card shadow-sm">
+              <img src="photo/album2.jpg" class="card-img-top img-fluid" alt="Düğün Albümü">
+              <div class="card-body text-center">
+                <h3 class="card-title h4">Düğün Albümü</h3>
+                <p class="card-text">Özel tasarım düğün albümleri ile anılarınızı kalıcı hale getiriyoruz.</p>
+                <a href="hizmetler.html" class="btn btn-primary">Detaylı Bilgi</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Müşteri Yorumları Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="display-5 fw-bold">Müşteri Yorumları</h2>
+          <p class="lead text-muted">Mutlu çiftlerimizin deneyimleri</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <img src="photo/cift.jpg" class="rounded-circle me-3" width="60" height="60" alt="Müşteri">
+                  <div>
+                    <h5 class="card-title mb-0">Ayşe & Mehmet</h5>
+                    <small class="text-muted">İstanbul, 2023</small>
+                  </div>
+                </div>
+                <p class="card-text">Harika bir deneyimdi! Tüm anlarımızı çok güzel yakaladılar. Teşekkürler!</p>
+                <div class="text-warning">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <img src="photo/cift2.jpg" class="rounded-circle me-3" width="60" height="60" alt="Müşteri">
+                  <div>
+                    <h5 class="card-title mb-0">Zeynep & Ali</h5>
+                    <small class="text-muted">Ankara, 2023</small>
+                  </div>
+                </div>
+                <p class="card-text">Profesyonel ekip ve harika sonuçlar. Kesinlikle tavsiye ediyoruz!</p>
+                <div class="text-warning">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <img src="photo/user.png" class="rounded-circle me-3" width="60" height="60" alt="Müşteri">
+                  <div>
+                    <h5 class="card-title mb-0">Elif & Can</h5>
+                    <small class="text-muted">İzmir, 2023</small>
+                  </div>
+                </div>
+                <p class="card-text">Düğünümüzün her anını mükemmel şekilde yakaladılar. Teşekkürler!</p>
+                <div class="text-warning">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Özel Tekliflerimiz Section -->
+    <section class="py-5 bg-primary text-white">
+      <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Düğününüzü Ölümsüzleştirelim</h2>
+        <p class="lead mb-4">Profesyonel fotoğrafçılık hizmetlerimiz için hemen iletişime geçin</p>
+        <a href="iletisim.html" class="btn btn-light btn-lg">İletişime Geç</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <h5 class="text-white mb-4">FotoDüğün</h5>
+            <p class="text-white-50">Profesyonel düğün fotoğrafçılığı hizmetleri ile özel anlarınızı ölümsüzleştiriyoruz.</p>
+            <div class="mt-4">
+              <a href="https://www.facebook.com/jeffkoliq.selim" class="social-icon text-white me-2"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/selim.tpc/" class="social-icon text-white me-2"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/topcu-selim/" class="social-icon text-white me-2"><i class="bi bi-linkedin"></i></a>
+              <a href="https://github.com/SeliwT" class="social-icon text-white"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <h5 class="text-white mb-4">Hızlı Bağlantılar</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">Ana Sayfa</a></li>
+              <li class="mb-2"><a href="hakkimizda.html" class="text-white-50 text-decoration-none">Hakkımızda</a></li>
+              <li class="mb-2"><a href="hizmetler.html" class="text-white-50 text-decoration-none">Hizmetler</a></li>
+              <li class="mb-2"><a href="galeri.html" class="text-white-50 text-decoration-none">Galeri</a></li>
+              <li class="mb-2"><a href="iletisim.html" class="text-white-50 text-decoration-none">İletişim</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h5 class="text-white mb-4">İletişim</h5>
+            <ul class="list-unstyled text-white-50">
+              <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> İstanbul, Türkiye</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i> +90 551 978 3846</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i> selimtopcu3@gmail.com</li>
+            <li class="mb-2"><i class="bi bi-person me-2"></i> Selim Topcu</li>
+            </ul>
+          </div>
+        </div>
+        <hr class="my-4 bg-white-50">
+        <div class="text-center text-white-50">
+          <small>&copy; 2024 Topcu Wedding Art. Tüm hakları saklıdır.</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
