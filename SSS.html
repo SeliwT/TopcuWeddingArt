@@ -1,296 +1,435 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sıkça Sorulan Sorular - FotoDüğün</title>
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
- 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  
-  <link rel="stylesheet" href="style.css">
-  <style>
-    :root {
-      --section-padding: 5rem;
-      --card-border-radius: 1rem;
-      --transition-speed: 0.3s;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sıkça Sorulan Sorular - FotoDüğün</title>
 
-    body {
-      font-family: "Segoe UI", sans-serif;
-    }
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-    /* Navbar Stil */
-    .navbar {
-      background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      height: 76px;
-    }
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
 
-    .nav-link {
-      position: relative;
-      padding: 0.5rem 1rem !important;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 50%;
-      background-color: var(--bs-primary);
-      transition: all var(--transition-speed) ease;
-      transform: translateX(-50%);
-    }
-
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      width: 100%;
-    }
-
-    /* Arama Kutusu Stil */
-    .search-box {
-      position: relative;
-      max-width: 600px;
-      margin: 0 auto 3rem;
-    }
-
-    .search-box input {
-      padding: 1rem 1.5rem;
-      padding-right: 3rem;
-      border-radius: 50px;
-      border: 1px solid #e0e0e0;
-      width: 100%;
-    }
-
-    .search-box input:focus {
-      outline: none;
-      border-color: var(--bs-primary);
-      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
-    }
-
-    /* Responsif Ayarlamalar */
-    @media (max-width: 768px) {
+    <link rel="stylesheet" href="style.css" />
+    <style>
       :root {
-        --section-padding: 3rem;
+        --section-padding: 5rem;
+        --card-border-radius: 1rem;
+        --transition-speed: 0.3s;
       }
-    }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <span class="text-primary">Topcu</span><span class="text-dark">Wedding</span><span class="text-primary">Art</span>
-      </a>
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link px-3" href="index.html">Ana Sayfa</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="Hakkimizda.html">Hakkımızda</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="Hizmetler.html">Hizmetler</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="Galeri.html">Galeri</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="iletisim.html">İletişim</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active px-3" href="SSS.html">S.S.S.</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Herhangi bir soru için Section -->
-  <section class="py-5 mt-5 bg-light">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h1 class="display-4 fw-bold">Sıkça Sorulan Sorular</h1>
-        <p class="lead text-muted">Merak ettiğiniz soruların cevapları</p>
-      </div>
-    </div>
-  </section>
+      body {
+        font-family: "Segoe UI", sans-serif;
+      }
 
-  <!-- Sıkça Sorulan Sorular Section -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <!-- Arama Kutusu -->
-          <div class="search-box mb-5">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Sorunuzu arayın...">
-              <button class="btn btn-primary">
-                <i class="bi bi-search"></i>
-              </button>
-            </div>
-          </div>
+      /* Navbar Stil */
+      .navbar {
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        height: 76px;
+      }
 
-          <!-- Sıkça Sorulan Sorular Accordion -->
-          <div class="accordion" id="faqAccordion">
-            <!-- Genel Sorular -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                  Düğün fotoğrafçılığı hizmetleriniz nelerdir?
-                </button>
-              </h2>
-              <div id="faq1" class="accordion-collapse collapse " data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                  Düğün fotoğrafçılığı hizmetlerimiz arasında düğün öncesi çekimler, düğün günü çekimleri, nişan ve kına gecesi çekimleri, çift çekimleri ve albüm tasarımı bulunmaktadır. Her paket için farklı seçenekler sunuyoruz.
-                </div>
-              </div>
-            </div>
+      .nav-link {
+        position: relative;
+        padding: 0.5rem 1rem !important;
+      }
 
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                  Fotoğraflar ne zaman teslim edilir?
-                </button>
-              </h2>
-              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                  Düğün fotoğraflarınız genellikle 2-3 hafta içinde hazır olur. Albüm tasarımı ve baskı süreci ise ek olarak 2-3 hafta sürebilir. Özel istekleriniz varsa süreç değişebilir.
-                </div>
-              </div>
-            </div>
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background-color: var(--bs-primary);
+        transition: all var(--transition-speed) ease;
+        transform: translateX(-50%);
+      }
 
-            <!-- Fiyatlandırma -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                  Fiyatlandırma nasıl yapılıyor?
-                </button>
-              </h2>
-              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                  Fiyatlarımız seçtiğiniz pakete, çekim süresine ve albüm seçeneklerine göre değişiklik gösterir. Detaylı fiyat bilgisi için bizimle iletişime geçebilirsiniz.
-                </div>
-              </div>
-            </div>
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
 
-            <!-- Rezervasyon -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                  Rezervasyon nasıl yapılır?
-                </button>
-              </h2>
-              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                  Rezervasyon için öncelikle bizimle iletişime geçmeniz gerekiyor. Tarih ve paket seçimi yaptıktan sonra, rezervasyon için %30 depozito ödemesi alıyoruz.
-                </div>
-              </div>
-            </div>
+      /* Arama Kutusu Stil */
+      .search-box {
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto 3rem;
+      }
 
-            <!-- Albüm -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-                  Albüm seçenekleri nelerdir?
-                </button>
-              </h2>
-              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                  Farklı boyut ve kalitede albüm seçeneklerimiz mevcuttur. Albümlerinizde kullanılacak fotoğrafları birlikte seçebilir, tasarım sürecinde aktif rol alabilirsiniz.
-                </div>
-              </div>
-            </div>
+      .search-box input {
+        padding: 1rem 1.5rem;
+        padding-right: 3rem;
+        border-radius: 50px;
+        border: 1px solid #e0e0e0;
+        width: 100%;
+      }
 
-            <!-- Ek Hizmetler -->
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
-                  Ek hizmetler sunuyor musunuz?
-                </button>
-              </h2>
-              <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                  Evet, düğün videografisi, drone çekimi, fotoğraf albümü tasarımı ve baskı, dijital fotoğraf arşivi gibi ek hizmetler sunuyoruz. Detaylı bilgi için iletişime geçebilirsiniz.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      .search-box input:focus {
+        outline: none;
+        border-color: var(--bs-primary);
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+      }
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <h5 class="text-white mb-4">FotoDüğün</h5>
-          <p class="text-white-50">Profesyonel düğün fotoğrafçılığı hizmetleri ile özel anlarınızı ölümsüzleştiriyoruz.</p>
-          <div class="mt-4">
-            <a href="https://www.facebook.com/jeffkoliq.selim" class="social-icon"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.instagram.com/selim.tpc/" class="social-icon"><i class="bi bi-instagram"></i></a>
-              <a href="https://www.linkedin.com/in/topcu-selim/" class="social-icon"><i class="bi bi-linkedin"></i></a>
-              <a href="https://github.com/SeliwT" class="social-icon"><i class="bi bi-github"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <h5 class="text-white mb-4">Hızlı Bağlantılar</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">Ana Sayfa</a></li>
-            <li class="mb-2"><a href="hakkimizda.html" class="text-white-50 text-decoration-none">Hakkımızda</a></li>
-            <li class="mb-2"><a href="hizmetler.html" class="text-white-50 text-decoration-none">Hizmetler</a></li>
-            <li class="mb-2"><a href="galeri.html" class="text-white-50 text-decoration-none">Galeri</a></li>
-            <li class="mb-2"><a href="iletisim.html" class="text-white-50 text-decoration-none">İletişim</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4">
-          <h5 class="text-white mb-4">İletişim</h5>
-          <ul class="list-unstyled text-white-50">
-            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> İstanbul, Türkiye</li>
-            <li class="mb-2"><i class="bi bi-telephone me-2"></i> +90 551 978 3846</li>
-            <li class="mb-2"><i class="bi bi-envelope me-2"></i> selimtopcu3@gmail.com</li>
-            <li class="mb-2"><i class="bi bi-person me-2"></i> Selim Topcu</li>
-          </ul>
-        </div>
-      </div>
-      <hr class="my-4 bg-white-50">
-      <div class="text-center text-white-50">
-        <small>&copy; 2024 Topcu Wedding Art. Tüm hakları saklıdır.</small>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Özel JS -->
-  <script>
-    // Sıkça Sorulan Sorular Arama
-    document.querySelector('.search-box input').addEventListener('keyup', function(e) {
-      const searchText = e.target.value.toLowerCase();
-      const accordionItems = document.querySelectorAll('.accordion-item');
-      
-      accordionItems.forEach(item => {
-        const question = item.querySelector('.accordion-button').textContent.toLowerCase();
-        const answer = item.querySelector('.accordion-body').textContent.toLowerCase();
-        
-        if (question.includes(searchText) || answer.includes(searchText)) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
+      /* Responsif Ayarlamalar */
+      @media (max-width: 768px) {
+        :root {
+          --section-padding: 3rem;
         }
-      });
-    });
-  </script>
-</body>
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <span class="text-primary">Topcu</span
+          ><span class="text-dark">Wedding</span
+          ><span class="text-primary">Art</span>
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link px-3" href="index.html">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="Hakkimizda.html">Hakkımızda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="Hizmetler.html">Hizmetler</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="Galeri.html">Galeri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="iletisim.html">İletişim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active px-3" href="SSS.html">S.S.S.</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Herhangi bir soru için Section -->
+    <section class="py-5 mt-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h1 class="display-4 fw-bold">Sıkça Sorulan Sorular</h1>
+          <p class="lead text-muted">Merak ettiğiniz soruların cevapları</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sıkça Sorulan Sorular Section -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <!-- Arama Kutusu -->
+            <div class="search-box mb-5">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Sorunuzu arayın..."
+                />
+                <button class="btn btn-primary">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Sıkça Sorulan Sorular Accordion -->
+            <div class="accordion" id="faqAccordion">
+              <!-- Genel Sorular -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq1"
+                  >
+                    Düğün fotoğrafçılığı hizmetleriniz nelerdir?
+                  </button>
+                </h2>
+                <div
+                  id="faq1"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Düğün fotoğrafçılığı hizmetlerimiz arasında düğün öncesi
+                    çekimler, düğün günü çekimleri, nişan ve kına gecesi
+                    çekimleri, çift çekimleri ve albüm tasarımı bulunmaktadır.
+                    Her paket için farklı seçenekler sunuyoruz.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq2"
+                  >
+                    Fotoğraflar ne zaman teslim edilir?
+                  </button>
+                </h2>
+                <div
+                  id="faq2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Düğün fotoğraflarınız genellikle 2-3 hafta içinde hazır
+                    olur. Albüm tasarımı ve baskı süreci ise ek olarak 2-3 hafta
+                    sürebilir. Özel istekleriniz varsa süreç değişebilir.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Fiyatlandırma -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq3"
+                  >
+                    Fiyatlandırma nasıl yapılıyor?
+                  </button>
+                </h2>
+                <div
+                  id="faq3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Fiyatlarımız seçtiğiniz pakete, çekim süresine ve albüm
+                    seçeneklerine göre değişiklik gösterir. Detaylı fiyat
+                    bilgisi için bizimle iletişime geçebilirsiniz.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Rezervasyon -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq4"
+                  >
+                    Rezervasyon nasıl yapılır?
+                  </button>
+                </h2>
+                <div
+                  id="faq4"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Rezervasyon için öncelikle bizimle iletişime geçmeniz
+                    gerekiyor. Tarih ve paket seçimi yaptıktan sonra,
+                    rezervasyon için %30 depozito ödemesi alıyoruz.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Albüm -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq5"
+                  >
+                    Albüm seçenekleri nelerdir?
+                  </button>
+                </h2>
+                <div
+                  id="faq5"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Farklı boyut ve kalitede albüm seçeneklerimiz mevcuttur.
+                    Albümlerinizde kullanılacak fotoğrafları birlikte seçebilir,
+                    tasarım sürecinde aktif rol alabilirsiniz.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ek Hizmetler -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq6"
+                  >
+                    Ek hizmetler sunuyor musunuz?
+                  </button>
+                </h2>
+                <div
+                  id="faq6"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body">
+                    Evet, düğün videografisi, drone çekimi, fotoğraf albümü
+                    tasarımı ve baskı, dijital fotoğraf arşivi gibi ek hizmetler
+                    sunuyoruz. Detaylı bilgi için iletişime geçebilirsiniz.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <h5 class="text-white mb-4">FotoDüğün</h5>
+            <p class="text-white-50">
+              Profesyonel düğün fotoğrafçılığı hizmetleri ile özel anlarınızı
+              ölümsüzleştiriyoruz.
+            </p>
+            <div class="mt-4">
+              <a
+                href="https://www.facebook.com/jeffkoliq.selim"
+                class="social-icon"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a href="https://www.instagram.com/selim.tpc/" class="social-icon"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/topcu-selim/"
+                class="social-icon"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <a href="https://github.com/SeliwT" class="social-icon"
+                ><i class="bi bi-github"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <h5 class="text-white mb-4">Hızlı Bağlantılar</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="index.html" class="text-white-50 text-decoration-none"
+                  >Ana Sayfa</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="Hakkimizda.html"
+                  class="text-white-50 text-decoration-none"
+                  >Hakkımızda</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="Hizmetler.html"
+                  class="text-white-50 text-decoration-none"
+                  >Hizmetler</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="Galeri.html" class="text-white-50 text-decoration-none"
+                  >Galeri</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="iletisim.html"
+                  class="text-white-50 text-decoration-none"
+                  >İletişim</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h5 class="text-white mb-4">İletişim</h5>
+            <ul class="list-unstyled text-white-50">
+              <li class="mb-2">
+                <i class="bi bi-geo-alt me-2"></i> İstanbul, Türkiye
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-telephone me-2"></i> +90 551 978 3846
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-envelope me-2"></i> selimtopcu3@gmail.com
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-person me-2"></i> Selim Topcu
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="my-4 bg-white-50" />
+        <div class="text-center text-white-50">
+          <small>&copy; 2024 Topcu Wedding Art. Tüm hakları saklıdır.</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Özel JS -->
+    <script>
+      // Sıkça Sorulan Sorular Arama
+      document
+        .querySelector(".search-box input")
+        .addEventListener("keyup", function (e) {
+          const searchText = e.target.value.toLowerCase();
+          const accordionItems = document.querySelectorAll(".accordion-item");
+
+          accordionItems.forEach((item) => {
+            const question = item
+              .querySelector(".accordion-button")
+              .textContent.toLowerCase();
+            const answer = item
+              .querySelector(".accordion-body")
+              .textContent.toLowerCase();
+
+            if (question.includes(searchText) || answer.includes(searchText)) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+    </script>
+  </body>
 </html>
